@@ -3,7 +3,7 @@ import ReactDOM from "react-dom/client";
 import App from "./App";
 import { initializeApp } from "firebase/app";
 import { FirebaseContext } from "./context/firebase";
-import "./index.css";
+import { GlobalStyles } from "./global-styles";
 
 const firebaseConfig = {
 	apiKey: "AIzaSyDEoGbmTFiRwRjXAh6zbj_1cUkURFimOCA",
@@ -18,6 +18,7 @@ const app = initializeApp(firebaseConfig);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
 	<FirebaseContext.Provider value={{ firebase: app }}>
+		<GlobalStyles />
 		<App />
 	</FirebaseContext.Provider>
 );
