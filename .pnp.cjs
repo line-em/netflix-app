@@ -35,6 +35,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["fuse.js", "npm:6.6.2"],\
             ["react", "npm:18.2.0"],\
             ["react-dom", "virtual:9f7fbccb54ad3731bbfc5d601638665b6101cf38223390884c5c6b348b03a37165bd0f8f2b08184018ab58e1407e4e7d396ba75b3be73b16407358aa0224f51b#npm:18.2.0"],\
+            ["react-is", "npm:18.2.0"],\
             ["react-router-dom", "virtual:9f7fbccb54ad3731bbfc5d601638665b6101cf38223390884c5c6b348b03a37165bd0f8f2b08184018ab58e1407e4e7d396ba75b3be73b16407358aa0224f51b#npm:6.6.1"],\
             ["styled-components", "virtual:9f7fbccb54ad3731bbfc5d601638665b6101cf38223390884c5c6b348b03a37165bd0f8f2b08184018ab58e1407e4e7d396ba75b3be73b16407358aa0224f51b#npm:5.3.6"],\
             ["vite", "virtual:9f7fbccb54ad3731bbfc5d601638665b6101cf38223390884c5c6b348b03a37165bd0f8f2b08184018ab58e1407e4e7d396ba75b3be73b16407358aa0224f51b#npm:4.0.4"]\
@@ -3376,6 +3377,13 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["react-is", "npm:16.13.1"]\
           ],\
           "linkType": "HARD"\
+        }],\
+        ["npm:18.2.0", {\
+          "packageLocation": "./.yarn/cache/react-is-npm-18.2.0-0cc5edb910-e72d0ba81b.zip/node_modules/react-is/",\
+          "packageDependencies": [\
+            ["react-is", "npm:18.2.0"]\
+          ],\
+          "linkType": "HARD"\
         }]\
       ]],\
       ["react-refresh", [\
@@ -3540,6 +3548,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["fuse.js", "npm:6.6.2"],\
             ["react", "npm:18.2.0"],\
             ["react-dom", "virtual:9f7fbccb54ad3731bbfc5d601638665b6101cf38223390884c5c6b348b03a37165bd0f8f2b08184018ab58e1407e4e7d396ba75b3be73b16407358aa0224f51b#npm:18.2.0"],\
+            ["react-is", "npm:18.2.0"],\
             ["react-router-dom", "virtual:9f7fbccb54ad3731bbfc5d601638665b6101cf38223390884c5c6b348b03a37165bd0f8f2b08184018ab58e1407e4e7d396ba75b3be73b16407358aa0224f51b#npm:6.6.1"],\
             ["styled-components", "virtual:9f7fbccb54ad3731bbfc5d601638665b6101cf38223390884c5c6b348b03a37165bd0f8f2b08184018ab58e1407e4e7d396ba75b3be73b16407358aa0224f51b#npm:5.3.6"],\
             ["vite", "virtual:9f7fbccb54ad3731bbfc5d601638665b6101cf38223390884c5c6b348b03a37165bd0f8f2b08184018ab58e1407e4e7d396ba75b3be73b16407358aa0224f51b#npm:4.0.4"]\
@@ -3699,7 +3708,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["hoist-non-react-statics", "npm:3.3.2"],\
             ["react", "npm:18.2.0"],\
             ["react-dom", "virtual:9f7fbccb54ad3731bbfc5d601638665b6101cf38223390884c5c6b348b03a37165bd0f8f2b08184018ab58e1407e4e7d396ba75b3be73b16407358aa0224f51b#npm:18.2.0"],\
-            ["react-is", null],\
+            ["react-is", "npm:18.2.0"],\
             ["shallowequal", "npm:1.1.0"],\
             ["supports-color", "npm:5.5.0"]\
           ],\

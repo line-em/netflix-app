@@ -1,7 +1,7 @@
-import jumboData from "../fixtures/jumbo.json";
-import Jumbotron from "../components/jumbotron";
+import jumboData from "../../fixtures/jumbo.json";
+import Jumbotron from "../jumbotron/Jumbotron";
 
-export function JumbotronContainer() {
+const JumbotronContainer = () => {
 	return (
 		<Jumbotron.Container>
 			{jumboData.map((item) => (
@@ -17,4 +17,6 @@ export function JumbotronContainer() {
 			))}
 		</Jumbotron.Container>
 	);
-}
+};
+
+export default JumbotronContainer;
