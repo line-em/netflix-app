@@ -1,30 +1,33 @@
 import React from "react";
 import { Container, Item, Inner, Title, SubTitle, Image, Pane } from "./styles";
 
-export default function Jumbotron({ children, direction = "row", ...props }) {
+const Jumbotron = ({ children, direction = "row", ...props }) => {
 	return (
 		<Item {...props}>
 			<Inner direction={direction}>{children}</Inner>
 		</Item>
 	);
-}
+};
 
-Jumbotron.Container = function JumbotronContainer({ children, ...props }) {
+const JumbotronContainer = ({ children, ...props }) => {
 	return <Container {...props}>{children}</Container>;
 };
-
-Jumbotron.Title = function JumbotronTitle({ children, ...props }) {
+const JumbotronTitle = ({ children, ...props }) => {
 	return <Title {...props}>{children}</Title>;
 };
-
-Jumbotron.SubTitle = function JumbotronSubTitle({ children, ...props }) {
+const JumbotronSubTitle = ({ children, ...props }) => {
 	return <SubTitle {...props}>{children}</SubTitle>;
 };
-
-Jumbotron.Pane = function JumbotronPane({ children, ...props }) {
+const JumbotronImage = ({ children, ...props }) => {
+	return <Image {...props}>{children}</Image>;
+};
+const JumbotronPane = ({ children, ...props }) => {
 	return <Pane {...props}>{children}</Pane>;
 };
 
-Jumbotron.Image = function JumbotronImage({ ...props }) {
-	return <Image {...props} />;
-};
+Jumbotron.Pane = JumbotronPane;
+Jumbotron.Image = JumbotronImage;
+Jumbotron.Title = JumbotronTitle;
+Jumbotron.SubTitle = JumbotronSubTitle;
+Jumbotron.Container = JumbotronContainer;
+export default Jumbotron;
