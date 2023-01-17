@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, Inner, Title, Header, Body, Item } from "./styles";
+import { Container, Inner, Title, Header, Body, Item, Frame } from "./styles";
 
 const Accordion = ({ children, ...props }) => {
 	return (
@@ -11,6 +11,10 @@ const Accordion = ({ children, ...props }) => {
 
 const AccordionTitle = ({ children, ...props }) => {
 	return <Title {...props}>{children}</Title>;
+};
+
+const AccordionFrame = ({ children, ...props }) => {
+	return <Frame {...props}>{children}</Frame>;
 };
 
 const AccordionItem = ({ children, ...props }) => {
@@ -29,4 +33,5 @@ Accordion.Title = AccordionTitle;
 Accordion.Header = AccordionHeader;
 Accordion.Body = AccordionBody;
 Accordion.Item = AccordionItem;
+Accordion.Frame = AccordionFrame;
 export default Accordion;
