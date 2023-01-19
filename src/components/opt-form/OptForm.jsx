@@ -1,17 +1,15 @@
 import React from "react";
 import { Container, Text, Input, Button } from "./styles";
 
-const ToggleContext = createContext();
-
 const OptForm = ({ children, ...props }) => {
 	return <Container {...props}>{children}</Container>;
 };
 
-const Input = ({ ...props }) => {
+const FormInput = ({ ...props }) => {
 	return <Input {...props} />;
 };
 
-const Button = ({ children, ...props }) => {
+const FormButton = ({ children, ...props }) => {
 	return (
 		<Button {...props}>
 			{children}
@@ -20,11 +18,11 @@ const Button = ({ children, ...props }) => {
 	);
 };
 
-const Text = ({ children, ...props }) => {
+const FormText = ({ children, ...props }) => {
 	return <Text {...props}>{children}</Text>;
 };
 
-OptForm.Input = Input;
-OptForm.Button = Button;
-OptForm.Text = Text;
+OptForm.Input = FormInput;
+OptForm.Button = FormButton;
+OptForm.Text = FormText;
 export default OptForm;
