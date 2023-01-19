@@ -1,7 +1,8 @@
 import React from "react";
+import BrowseContainer from "../components/BrowseContainer";
 
 const Browse = () => {
-	return <h1>Browse</h1>;
+	return <BrowseContainer />;
 };
 
 export default Browse;
