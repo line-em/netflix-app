@@ -1,6 +1,9 @@
 import React from "react";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes, ProtectedRoute } from "react-router-dom";
 import Home from "./pages/Home";
+import Signin from "./pages/Signin";
+import Signup from "./pages/Signup";
+import Browse from "./pages/Browse";
 
 function App() {
 	return (
@@ -8,37 +11,14 @@ function App() {
 			<Routes>
 				<Route index element={<Home />} />
 				<Route path="/" element={<Home />} />
-				<Route path="/signin" element="">
-					signin
-				</Route>
-				<Route path="/signup" element="">
-					login
-				</Route>
-				<Route path="/browse" element="">
-					browse
-				</Route>
+				<Route path="/signin" element={<Signin />} />
+				<Route path="/signup" element={<Signup />} />
+				<ProtectedRoute>
+					<Route path="/browse" element={<Browse />} />
+				</ProtectedRoute>
 			</Routes>
 		</BrowserRouter>
 	);
 }
 
 export default App;
-
-{
-	/* <Router>
-	<Switch>
-		<Route path="/signin">
-			<p>I will be the sign in page</p>
-		</Route>
-		<Route path="/signup">
-			<p>I will be the sign up page</p>
-		</Route>
-		<Route path="/browse">
-			<p>I will be the browse page</p>
-		</Route>
-		<Route path="/">
-			<p>I am going to be a cloned Netflix application</p>
-		</Route>
-	</Switch>
-</Router>; */
-}

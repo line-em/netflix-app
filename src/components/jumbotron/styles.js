@@ -5,7 +5,8 @@ export const Inner = styled.div`
 	align-items: center;
 	justify-content: space-between;
 	flex-direction: ${({ direction }) => direction};
-	max-width: 1100px;
+	max-width: 850px;
+	gap: 10px;
 	margin: auto;
 	width: 100%;
 

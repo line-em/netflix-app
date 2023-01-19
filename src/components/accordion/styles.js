@@ -13,7 +13,7 @@ export const Inner = styled.div`
 	display: flex;
 	padding: 70px 45px;
 	flex-direction: column;
-	max-width: 815px;
+	max-width: 850px;
 	margin: auto;
 `;
 
@@ -59,7 +59,7 @@ export const Header = styled.div`
 
 export const Body = styled.div`
 	transition: max-height 0.25s cubic-bezier(0.5, 0, 0.1, 1);
-	max-width: 1200px;
+	max-width: 60ch;
 	font-size: 1.2rem;
 	font-weight: 300;
 	color: white;
