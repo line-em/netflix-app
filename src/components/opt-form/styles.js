@@ -16,11 +16,10 @@ export const Container = styled.div`
 
 export const Input = styled.input`
 	max-width: 450px;
-	width: 100%;
+	width: 90%;
 	margin: auto;
 	border: 0;
-	padding: 10px;
-	height: 70px;
+	padding: 20px;
 	font-family: inherit;
 `;
 
