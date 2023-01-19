@@ -1,5 +1,7 @@
-import React from "react";
+import React, { createContext, useContext, useState } from "react";
 import { Container, Inner, Title, Header, Body, Item, Frame } from "./styles";
+
+const ToggleContext = createContext();
 
 const Accordion = ({ children, ...props }) => {
 	return (
@@ -18,15 +20,31 @@ const AccordionFrame = ({ children, ...props }) => {
 };
 
 const AccordionItem = ({ children, ...props }) => {
-	return <Item {...props}>{children}</Item>;
+	const [toggleShow, setToggleShow] = useState(false);
+	return (
+		<ToggleContext.Provider value={{ toggleShow, setToggleShow }}>
+			<Item {...props}>{children}</Item>
+		</ToggleContext.Provider>
+	);
 };
 
 const AccordionHeader = ({ children, ...props }) => {
-	return <Header {...props}>{children}</Header>;
+	const { toggleShow, setToggleShow } = useContext(ToggleContext);
+	return (
+		<Header onClick={() => setToggleShow(!toggleShow)} {...props}>
+			{children}
+			{toggleShow ? (
+				<img src="/images/icons/close-slim.png" alt="Close" />
+			) : (
+				<img src="/images/icons/add.png" alt="Open" />
+			)}
+		</Header>
+	);
 };
 
 const AccordionBody = ({ children, ...props }) => {
-	return <Body {...props}>{children}</Body>;
+	const { toggleShow } = useContext(ToggleContext);
+	return toggleShow ? <Body {...props}>{children}</Body> : null;
 };
 
 Accordion.Title = AccordionTitle;
