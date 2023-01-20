@@ -2,22 +2,26 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App";
 import { initializeApp } from "firebase/app";
+import { getAuth } from "firebase/auth";
 import { FirebaseContext } from "./context/firebase";
+import { getFirestore } from "firebase/firestore";
 import { GlobalStyles } from "./global-styles";
 
 const firebaseConfig = {
-	apiKey: "AIzaSyD4fEAGpQdSbYp_sp-dbF2G3yQ4FcmxXBQ",
-	authDomain: "netflix-clone-3356f.firebaseapp.com",
-	projectId: "netflix-clone-3356f",
-	storageBucket: "netflix-clone-3356f.appspot.com",
-	messagingSenderId: "116595341258",
-	appId: "1:116595341258:web:908a22e5e81cd79c788133"
+	apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+	authDomain: import.meta.env.VITE_AUTH_DOMAIN,
+	projectId: import.meta.env.VITE_PROJECT_ID,
+	storageBucket: import.meta.env.VITE_STORAGE_BUCKET,
+	messagingSenderId: import.meta.env.VITE_MESSAGING_SENDER_ID,
+	appId: import.meta.env.VITE_APP_ID
 };
 
-const app = initializeApp(firebaseConfig);
+const firebase = initializeApp(firebaseConfig);
+const auth = getAuth(firebase);
+const db = getFirestore(firebase);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-	<FirebaseContext.Provider value={{ firebase: app }}>
+	<FirebaseContext.Provider value={{ firebase, auth, db }}>
 		<GlobalStyles />
 		<App />
 	</FirebaseContext.Provider>

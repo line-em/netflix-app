@@ -1,9 +1,14 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import { useNavigate } from "react-router-dom";
 import Form from "../components/form/Form";
 import HeaderContainer from "../components/header/HeaderContainer";
 import FooterContainer from "../components/footer/FooterContainer";
+import { FirebaseContext } from "../context/firebase";
+import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 
 const Signup = () => {
+	const navigate = useNavigate();
+	const { auth } = useContext(FirebaseContext);
 	const [firstName, setFirstName] = useState("");
 	const [emailAddress, setEmailAddress] = useState("");
 	const [password, setPassword] = useState("");
@@ -11,8 +16,25 @@ const Signup = () => {
 
 	const isInvalid = firstName === "" || password === "" || emailAddress === "";
 
-	const handleSignup = (event) => {
+	const handleSignup = async (event) => {
 		event.preventDefault();
+		try {
+			const response = await createUserWithEmailAndPassword(auth, emailAddress, password);
+			await updateProfile(auth.currentUser, {
+				displayName: firstName,
+				photoURL: Math.floor(Math.random() * 5) + 1
+			});
+			setEmailAddress("");
+			setPassword("");
+			setError("");
+			setTimeout(() => {
+				navigate("/browse", { replace: true });
+			}, 1000);
+			// return response.user;
+		} catch (error) {
+			console.log(error.message);
+			return setError(error.message);
+		}
 	};
 
 	return (
