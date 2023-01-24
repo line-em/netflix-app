@@ -13,7 +13,10 @@ import {
 	FeatureCallout,
 	Search,
 	SearchIcon,
-	SearchInput
+	SearchInput,
+	Picture,
+	Profile,
+	Dropdown
 } from "./styles";
 
 const Header = ({ bg = true, children, ...props }) => {
@@ -77,6 +80,18 @@ const HeaderSearch = ({ searchTerm, setSearchTerm, ...props }) => {
 	);
 };
 
+const HeaderPicture = ({ src, ...props }) => {
+	return <Picture {...props} src={`/images/users/${src}.png`} />;
+};
+
+const HeaderDropdown = ({ children, ...props }) => {
+	return <Dropdown {...props}>{children}</Dropdown>;
+};
+
+const HeaderProfile = ({ children, ...props }) => {
+	return <Profile {...props}>{children}</Profile>;
+};
+
 Header.Frame = HeaderFrame;
 Header.Text = HeaderText;
 Header.Group = HeaderGroup;
@@ -87,5 +102,8 @@ Header.FeatureCallout = HeaderFeatureCallout;
 Header.Feature = HeaderFeature;
 Header.PlayButton = HeaderPlayButton;
 Header.Search = HeaderSearch;
+Header.Picture = HeaderPicture;
+Header.Dropdown = HeaderDropdown;
+Header.Profile = HeaderProfile;
 
 export default Header;
