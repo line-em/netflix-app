@@ -1,4 +1,5 @@
-export function seedDatabase(firebase) {
+import { collection, addDoc } from "firebase/firestore";
+export function seedDatabase(db) {
 	function getUUID() {
 		return "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g, (c) => {
 			const piece = (Math.random() * 16) | 0;
@@ -6,11 +7,12 @@ export function seedDatabase(firebase) {
 			return elem.toString(16);
 		});
 	}
-	console.log(firebase);
+
 	/* Series
     ============================================ */
 	// Documentaries
-	firebase.collection("series").add({
+
+	addDoc(collection(db, "series"), {
 		id: getUUID(),
 		title: "Tiger King",
 		description:
@@ -19,7 +21,7 @@ export function seedDatabase(firebase) {
 		maturity: "18",
 		slug: "tiger-king"
 	});
-	firebase.collection("series").add({
+	addDoc(collection(db, "series"), {
 		id: getUUID(),
 		title: "Amanda Knox",
 		description:
@@ -28,7 +30,7 @@ export function seedDatabase(firebase) {
 		maturity: "12",
 		slug: "amanda-knox"
 	});
-	firebase.collection("series").add({
+	addDoc(collection(db, "series"), {
 		id: getUUID(),
 		title: "Citizenfour",
 		description:
@@ -37,7 +39,7 @@ export function seedDatabase(firebase) {
 		maturity: "12",
 		slug: "citizenfour"
 	});
-	firebase.collection("series").add({
+	addDoc(collection(db, "series"), {
 		id: getUUID(),
 		title: "Super Size Me",
 		description:
@@ -46,7 +48,7 @@ export function seedDatabase(firebase) {
 		maturity: "12",
 		slug: "super-size-me"
 	});
-	firebase.collection("series").add({
+	addDoc(collection(db, "series"), {
 		id: getUUID(),
 		title: "Man on Wire",
 		description:
@@ -57,7 +59,7 @@ export function seedDatabase(firebase) {
 	});
 
 	// Comedies
-	firebase.collection("series").add({
+	addDoc(collection(db, "series"), {
 		id: getUUID(),
 		title: "The Office",
 		description:
@@ -66,7 +68,7 @@ export function seedDatabase(firebase) {
 		maturity: "15",
 		slug: "the-office"
 	});
-	firebase.collection("series").add({
+	addDoc(collection(db, "series"), {
 		id: getUUID(),
 		title: "Arrested Development",
 		description:
@@ -75,7 +77,7 @@ export function seedDatabase(firebase) {
 		maturity: "15",
 		slug: "arrested-development"
 	});
-	firebase.collection("series").add({
+	addDoc(collection(db, "series"), {
 		id: getUUID(),
 		title: "Curb Your Enthusiasm",
 		description:
@@ -84,7 +86,7 @@ export function seedDatabase(firebase) {
 		maturity: "15",
 		slug: "curb-your-enthusiasm"
 	});
-	firebase.collection("series").add({
+	addDoc(collection(db, "series"), {
 		id: getUUID(),
 		title: "Family Guy",
 		description:
@@ -93,7 +95,7 @@ export function seedDatabase(firebase) {
 		maturity: "15",
 		slug: "family-guy"
 	});
-	firebase.collection("series").add({
+	addDoc(collection(db, "series"), {
 		id: getUUID(),
 		title: "South Park",
 		description:
@@ -104,7 +106,7 @@ export function seedDatabase(firebase) {
 	});
 
 	// Children
-	firebase.collection("series").add({
+	addDoc(collection(db, "series"), {
 		id: getUUID(),
 		title: "Peppa Pig",
 		description:
@@ -113,7 +115,7 @@ export function seedDatabase(firebase) {
 		maturity: "0",
 		slug: "peppa-pig"
 	});
-	firebase.collection("series").add({
+	addDoc(collection(db, "series"), {
 		id: getUUID(),
 		title: "Dora The Explorer",
 		description:
@@ -122,7 +124,7 @@ export function seedDatabase(firebase) {
 		maturity: "0",
 		slug: "dora-the-explorer"
 	});
-	firebase.collection("series").add({
+	addDoc(collection(db, "series"), {
 		id: getUUID(),
 		title: "PAW Patrol",
 		description:
@@ -131,7 +133,7 @@ export function seedDatabase(firebase) {
 		maturity: "0",
 		slug: "paw-patrol"
 	});
-	firebase.collection("series").add({
+	addDoc(collection(db, "series"), {
 		id: getUUID(),
 		title: "Arthur",
 		description:
@@ -140,7 +142,7 @@ export function seedDatabase(firebase) {
 		maturity: "0",
 		slug: "arthur"
 	});
-	firebase.collection("series").add({
+	addDoc(collection(db, "series"), {
 		id: getUUID(),
 		title: "SpongeBob",
 		description:
@@ -151,7 +153,7 @@ export function seedDatabase(firebase) {
 	});
 
 	// Crime
-	firebase.collection("series").add({
+	addDoc(collection(db, "series"), {
 		id: getUUID(),
 		title: "Making a Murderer",
 		description:
@@ -160,7 +162,7 @@ export function seedDatabase(firebase) {
 		maturity: "18",
 		slug: "making-a-murderer"
 	});
-	firebase.collection("series").add({
+	addDoc(collection(db, "series"), {
 		id: getUUID(),
 		title: "Long Shot",
 		description:
@@ -169,7 +171,7 @@ export function seedDatabase(firebase) {
 		maturity: "18",
 		slug: "long-shot"
 	});
-	firebase.collection("series").add({
+	addDoc(collection(db, "series"), {
 		id: getUUID(),
 		title: "The Confession Killer",
 		description:
@@ -178,7 +180,7 @@ export function seedDatabase(firebase) {
 		maturity: "18",
 		slug: "the-confession-killer"
 	});
-	firebase.collection("series").add({
+	addDoc(collection(db, "series"), {
 		id: getUUID(),
 		title: "The Innocent Man",
 		description:
@@ -187,7 +189,7 @@ export function seedDatabase(firebase) {
 		maturity: "18",
 		slug: "the-innocent-man"
 	});
-	firebase.collection("series").add({
+	addDoc(collection(db, "series"), {
 		id: getUUID(),
 		title: "The Staircase",
 		description:
@@ -198,7 +200,7 @@ export function seedDatabase(firebase) {
 	});
 
 	// Feel-good
-	firebase.collection("series").add({
+	addDoc(collection(db, "series"), {
 		id: getUUID(),
 		title: "Good Will Hunting",
 		description:
@@ -207,7 +209,7 @@ export function seedDatabase(firebase) {
 		maturity: "12",
 		slug: "good-will-hunting"
 	});
-	firebase.collection("series").add({
+	addDoc(collection(db, "series"), {
 		id: getUUID(),
 		title: "Forrest Gump",
 		description:
@@ -216,7 +218,7 @@ export function seedDatabase(firebase) {
 		maturity: "12",
 		slug: "forrest-gump"
 	});
-	firebase.collection("series").add({
+	addDoc(collection(db, "series"), {
 		id: getUUID(),
 		title: "Juno",
 		description:
@@ -225,7 +227,7 @@ export function seedDatabase(firebase) {
 		maturity: "12",
 		slug: "juno"
 	});
-	firebase.collection("series").add({
+	addDoc(collection(db, "series"), {
 		id: getUUID(),
 		title: "Midnight In Paris",
 		description:
@@ -234,7 +236,7 @@ export function seedDatabase(firebase) {
 		maturity: "12",
 		slug: "midnight-in-paris"
 	});
-	firebase.collection("series").add({
+	addDoc(collection(db, "series"), {
 		id: getUUID(),
 		title: "School of Rock",
 		description:
@@ -247,7 +249,7 @@ export function seedDatabase(firebase) {
 	/* Films
     ============================================ */
 	// Drama
-	firebase.collection("films").add({
+	addDoc(collection(db, "films"), {
 		id: getUUID(),
 		title: "The Prestige",
 		description:
@@ -256,7 +258,7 @@ export function seedDatabase(firebase) {
 		maturity: "15",
 		slug: "the-prestige"
 	});
-	firebase.collection("films").add({
+	addDoc(collection(db, "films"), {
 		id: getUUID(),
 		title: "Fight Club",
 		description:
@@ -265,7 +267,7 @@ export function seedDatabase(firebase) {
 		maturity: "15",
 		slug: "fight-club"
 	});
-	firebase.collection("films").add({
+	addDoc(collection(db, "films"), {
 		id: getUUID(),
 		title: "Kings Speech",
 		description:
@@ -274,7 +276,7 @@ export function seedDatabase(firebase) {
 		maturity: "15",
 		slug: "kings-speech"
 	});
-	firebase.collection("films").add({
+	addDoc(collection(db, "films"), {
 		id: getUUID(),
 		title: "The Revenant",
 		description:
@@ -283,7 +285,7 @@ export function seedDatabase(firebase) {
 		maturity: "15",
 		slug: "the-revenant"
 	});
-	firebase.collection("films").add({
+	addDoc(collection(db, "films"), {
 		id: getUUID(),
 		title: "The Social Network",
 		description:
@@ -294,7 +296,7 @@ export function seedDatabase(firebase) {
 	});
 
 	// Suspense
-	firebase.collection("films").add({
+	addDoc(collection(db, "films"), {
 		id: getUUID(),
 		title: "Shutter Island",
 		description:
@@ -303,7 +305,7 @@ export function seedDatabase(firebase) {
 		maturity: "15",
 		slug: "shutter-island"
 	});
-	firebase.collection("films").add({
+	addDoc(collection(db, "films"), {
 		id: getUUID(),
 		title: "Gone Girl",
 		description:
@@ -312,7 +314,7 @@ export function seedDatabase(firebase) {
 		maturity: "15",
 		slug: "gone-girl"
 	});
-	firebase.collection("films").add({
+	addDoc(collection(db, "films"), {
 		id: getUUID(),
 		title: "Prisoners",
 		description:
@@ -321,7 +323,7 @@ export function seedDatabase(firebase) {
 		maturity: "15",
 		slug: "prisoners"
 	});
-	firebase.collection("films").add({
+	addDoc(collection(db, "films"), {
 		id: getUUID(),
 		title: "Seven",
 		description:
@@ -330,7 +332,7 @@ export function seedDatabase(firebase) {
 		maturity: "15",
 		slug: "seven"
 	});
-	firebase.collection("films").add({
+	addDoc(collection(db, "films"), {
 		id: getUUID(),
 		title: "Zodiac",
 		description:
@@ -341,7 +343,7 @@ export function seedDatabase(firebase) {
 	});
 
 	// Children
-	firebase.collection("films").add({
+	addDoc(collection(db, "films"), {
 		id: getUUID(),
 		title: "Hotel Transylvania",
 		description:
@@ -350,7 +352,7 @@ export function seedDatabase(firebase) {
 		maturity: "0",
 		slug: "hotel-transylvania"
 	});
-	firebase.collection("films").add({
+	addDoc(collection(db, "films"), {
 		id: getUUID(),
 		title: "Despicable Me",
 		description:
@@ -359,7 +361,7 @@ export function seedDatabase(firebase) {
 		maturity: "0",
 		slug: "despicable-me"
 	});
-	firebase.collection("films").add({
+	addDoc(collection(db, "films"), {
 		id: getUUID(),
 		title: "Frozen",
 		description:
@@ -368,7 +370,7 @@ export function seedDatabase(firebase) {
 		maturity: "0",
 		slug: "frozen"
 	});
-	firebase.collection("films").add({
+	addDoc(collection(db, "films"), {
 		id: getUUID(),
 		title: "Spirited Away",
 		description:
@@ -377,7 +379,7 @@ export function seedDatabase(firebase) {
 		maturity: "0",
 		slug: "spirited-away"
 	});
-	firebase.collection("films").add({
+	addDoc(collection(db, "films"), {
 		id: getUUID(),
 		title: "Up",
 		description:
@@ -388,7 +390,7 @@ export function seedDatabase(firebase) {
 	});
 
 	// Thriller
-	firebase.collection("films").add({
+	addDoc(collection(db, "films"), {
 		id: getUUID(),
 		title: "Joker",
 		description:
@@ -397,7 +399,7 @@ export function seedDatabase(firebase) {
 		maturity: "15",
 		slug: "joker"
 	});
-	firebase.collection("films").add({
+	addDoc(collection(db, "films"), {
 		id: getUUID(),
 		title: "A Quiet Place",
 		description:
@@ -406,7 +408,7 @@ export function seedDatabase(firebase) {
 		maturity: "15",
 		slug: "a-quiet-place"
 	});
-	firebase.collection("films").add({
+	addDoc(collection(db, "films"), {
 		id: getUUID(),
 		title: "Black Swan",
 		description:
@@ -415,7 +417,7 @@ export function seedDatabase(firebase) {
 		maturity: "15",
 		slug: "black-swan"
 	});
-	firebase.collection("films").add({
+	addDoc(collection(db, "films"), {
 		id: getUUID(),
 		title: "Nightcrawler",
 		description:
@@ -424,7 +426,7 @@ export function seedDatabase(firebase) {
 		maturity: "15",
 		slug: "nightcrawler"
 	});
-	firebase.collection("films").add({
+	addDoc(collection(db, "films"), {
 		id: getUUID(),
 		title: "The Silence of The Lambs",
 		description:
@@ -435,7 +437,7 @@ export function seedDatabase(firebase) {
 	});
 
 	// Romance
-	firebase.collection("films").add({
+	addDoc(collection(db, "films"), {
 		id: getUUID(),
 		title: "A Star Is Born",
 		description:
@@ -444,7 +446,7 @@ export function seedDatabase(firebase) {
 		maturity: "15",
 		slug: "a-star-is-born"
 	});
-	firebase.collection("films").add({
+	addDoc(collection(db, "films"), {
 		id: getUUID(),
 		title: "Blue Valentine",
 		description:
@@ -453,7 +455,7 @@ export function seedDatabase(firebase) {
 		maturity: "15",
 		slug: "blue-valentine"
 	});
-	firebase.collection("films").add({
+	addDoc(collection(db, "films"), {
 		id: getUUID(),
 		title: "La La Land",
 		description:
@@ -462,7 +464,7 @@ export function seedDatabase(firebase) {
 		maturity: "15",
 		slug: "la-la-land"
 	});
-	firebase.collection("films").add({
+	addDoc(collection(db, "films"), {
 		id: getUUID(),
 		title: "The Notebook",
 		description:
@@ -471,7 +473,7 @@ export function seedDatabase(firebase) {
 		maturity: "15",
 		slug: "the-notebook"
 	});
-	firebase.collection("films").add({
+	addDoc(collection(db, "films"), {
 		id: getUUID(),
 		title: "Titanic",
 		description:
