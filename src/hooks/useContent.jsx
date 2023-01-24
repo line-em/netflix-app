@@ -2,22 +2,21 @@ import { useEffect, useState, useContext } from "react";
 import { FirebaseContext } from "../context/firebase";
 import { collection, getDocs } from "firebase/firestore";
 
-const useContent = async (target) => {
+const useContent = (target) => {
 	const [content, setContent] = useState([]);
 	const { db } = useContext(FirebaseContext);
 
 	const getData = async () => {
 		try {
 			const querySnapshot = await getDocs(collection(db, target));
-			let test = [];
+			let data = [];
 			querySnapshot.forEach((contentObj) =>
-				test.push({
+				data.push({
 					...contentObj.data(),
 					docId: contentObj.id
 				})
 			);
-			setContent(test);
-			console.log(content);
+			setContent(data);
 			console.log("Did request!");
 		} catch (error) {
 			console.log(error);
@@ -28,7 +27,7 @@ const useContent = async (target) => {
 		getData();
 	}, []);
 
-	return { [target]: content };
+	return content;
 };
 
 export default useContent;
