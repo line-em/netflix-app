@@ -3,9 +3,10 @@ import ReactDOM from "react-dom/client";
 import App from "./App";
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
-import { FirebaseContext } from "./context/firebase";
 import { getFirestore } from "firebase/firestore";
+import { FirebaseContext } from "./context/firebase";
 import { GlobalStyles } from "./global-styles";
+import { seedDatabase } from "./seed";
 
 const firebaseConfig = {
 	apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
@@ -19,6 +20,8 @@ const firebaseConfig = {
 const firebase = initializeApp(firebaseConfig);
 const auth = getAuth(firebase);
 const db = getFirestore(firebase);
+
+seedDatabase(db);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
 	<FirebaseContext.Provider value={{ firebase, auth, db }}>
