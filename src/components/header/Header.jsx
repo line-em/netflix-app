@@ -1,6 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link as ReactRouterLink } from "react-router-dom";
-import { Background, Container, Logo, ButtonLink, Group, Link, Text } from "./styles";
+import {
+	Background,
+	Container,
+	Logo,
+	ButtonLink,
+	Group,
+	Link,
+	Text,
+	Feature,
+	PlayButton,
+	FeatureCallout,
+	Search,
+	SearchIcon,
+	SearchInput
+} from "./styles";
 
 const Header = ({ bg = true, children, ...props }) => {
 	return bg ? <Background {...props}>{children}</Background> : children;
@@ -34,10 +48,44 @@ const HeaderLink = ({ children, ...props }) => {
 	return <Link {...props}>{children}</Link>;
 };
 
+const HeaderFeature = ({ children, ...props }) => {
+	return <Feature {...props}>{children}</Feature>;
+};
+
+const HeaderFeatureCallout = ({ children, ...props }) => {
+	return <FeatureCallout {...props}>{children}</FeatureCallout>;
+};
+
+const HeaderPlayButton = ({ children, ...props }) => {
+	return <PlayButton {...props}>{children}</PlayButton>;
+};
+
+const HeaderSearch = ({ searchTerm, setSearchTerm, ...props }) => {
+	const [searchActive, setSearchActive] = useState(false);
+	return (
+		<Search {...props}>
+			<SearchIcon onClick={() => setSearchActive(!searchActive)}>
+				<img src="/images/icons/search.png" alt="Search" />
+			</SearchIcon>
+			<SearchInput
+				value={searchTerm}
+				onChange={({ target }) => setSearchTerm(target.value)}
+				placeholder="Search films and series..."
+				active={searchActive}
+			></SearchInput>
+		</Search>
+	);
+};
+
 Header.Frame = HeaderFrame;
 Header.Text = HeaderText;
 Header.Group = HeaderGroup;
 Header.Logo = HeaderLogo;
 Header.ButtonLink = HeaderButtonLink;
 Header.Link = HeaderLink;
+Header.FeatureCallout = HeaderFeatureCallout;
+Header.Feature = HeaderFeature;
+Header.PlayButton = HeaderPlayButton;
+Header.Search = HeaderSearch;
+
 export default Header;
