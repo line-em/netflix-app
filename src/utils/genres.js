@@ -8,10 +8,10 @@ const getGenres = (obj) => {
 	});
 };
 
-export const concatenateMediaData = (movies, series) => {
+export const concatenateMediaData = (films, series) => {
 	let allData = {
 		series: getGenres(series),
-		movies: getGenres(movies)
+		films: getGenres(films)
 	};
 	return allData;
 };

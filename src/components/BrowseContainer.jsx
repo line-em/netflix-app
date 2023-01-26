@@ -1,4 +1,5 @@
 import React, { useState, useContext, useEffect } from "react";
+import Fuse from "fuse.js";
 import Header from "./header/Header";
 import Card from "./card/Card";
 import Loading from "./loading/Loading";
@@ -29,7 +30,21 @@ const BrowseContainer = ({ slides }) => {
 
 	useEffect(() => {
 		setSlideRows(slides[category]);
+		console.log(slides);
 	}, [slides, category]);
+
+	useEffect(() => {
+		const fuse = new Fuse(slideRows, {
+			keys: ["data.description", "data.title", "data.genre"]
+		});
+		const results = fuse.search(searchTerm).map(({ item }) => item);
+
+		if (slideRows.length > 0 && searchTerm.length > 3 && results.length > 0) {
+			setSlideRows(results);
+		} else {
+			setSlideRows(slides[category]);
+		}
+	}, [searchTerm]);
 
 	return profile.displayName ? (
 		<>
@@ -90,27 +105,28 @@ const BrowseContainer = ({ slides }) => {
 				<Header.PlayButton>Play</Header.PlayButton>
 			</Header>
 			<Card.Group>
-				{slideRows.map((slideItem) => (
-					<Card key={`${category}-${slideItem.title.toLowerCase()}`}>
-						<Card.Title>{slideItem.title}</Card.Title>
-						<Card.Entities>
-							{slideItem.data.map((item) => (
-								<Card.Item key={item.docId} item={item}>
-									<Card.Image
-										src={`/images/${category}/${item.genre}/${item.slug}/small.jpg`}
-									/>
-									<Card.Meta>
-										<Card.SubTitle>{item.title}</Card.SubTitle>
-										<Card.Text>{item.description}</Card.Text>
-									</Card.Meta>
-								</Card.Item>
-							))}
-						</Card.Entities>
-						<Card.Feature category={category}>
-							<p>I am the feature!</p>
-						</Card.Feature>
-					</Card>
-				))}
+				{slideRows &&
+					slideRows.map((slideItem) => (
+						<Card key={`${category}-${slideItem.title.toLowerCase()}`}>
+							<Card.Title>{slideItem.title}</Card.Title>
+							<Card.Entities>
+								{slideItem.data.map((item) => (
+									<Card.Item key={item.docId} item={item}>
+										<Card.Image
+											src={`/images/${category}/${item.genre}/${item.slug}/small.jpg`}
+										/>
+										<Card.Meta>
+											<Card.SubTitle>{item.title}</Card.SubTitle>
+											<Card.Text>{item.description}</Card.Text>
+										</Card.Meta>
+									</Card.Item>
+								))}
+							</Card.Entities>
+							<Card.Feature category={category}>
+								<p>I am the feature!</p>
+							</Card.Feature>
+						</Card>
+					))}
 			</Card.Group>
 			<FooterContainer />
 		</>

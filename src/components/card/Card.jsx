@@ -59,7 +59,7 @@ const CardMeta = ({ children, ...props }) => {
 	return <Meta {...props}>{children}</Meta>;
 };
 const CardItem = ({ item, children, ...props }) => {
-	const { setShowFeature, setItemFeature } = useContext(FeatureContext);
+	const { setShowFeature, setItemFeature, itemFeature } = useContext(FeatureContext);
 	return (
 		<Item
 			onClick={() => {
