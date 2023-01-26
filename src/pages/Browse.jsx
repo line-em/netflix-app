@@ -7,8 +7,7 @@ const Browse = () => {
 	const series = useContent("series");
 	const films = useContent("films");
 	const slides = concatenateMediaData(films, series);
-	console.log(slides);
-	return <BrowseContainer />;
+	return <BrowseContainer slides={slides} />;
 };
 
 export default Browse;
